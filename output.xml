@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-09-23T13:17:11.257761" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot" source="C:\Users\Thanapat\Desktop\Mycode\test_robot\robot.robot">
+<test id="s1-t1" name="Test Getcode API" line="8">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-09-23T13:17:11.993235" level="INFO">Creating Session using : alias=api_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-09-23T13:17:11.993235" elapsed="0.000000"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-09-23T13:17:11.994082" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-23T13:17:14.043521" level="INFO">GET Request : url=http://localhost:5000/getcode 
+ path_url=/getcode 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-09-23T13:17:14.043521" level="INFO">GET Response : url=http://localhost:5000/getcode 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.0.3 Python/3.12.5', 'Date': 'Mon, 23 Sep 2024 06:17:14 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '5', 'Connection': 'close'} 
+ body=12345 
+ </msg>
+<msg time="2024-09-23T13:17:14.043521" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>/getcode</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-09-23T13:17:11.994082" elapsed="2.049439"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-09-23T13:17:14.045813" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-23T13:17:14.044522" elapsed="0.001291"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-09-23T13:17:14.047813" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.content}</arg>
+<arg>12345</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-23T13:17:14.046820" elapsed="0.000993"/>
+</kw>
+<doc>ทดสอบการเรียก /getcode API</doc>
+<status status="PASS" start="2024-09-23T13:17:11.991234" elapsed="2.056579"/>
+</test>
+<test id="s1-t2" name="Test Plus API" line="15">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-09-23T13:17:14.048937" level="INFO">Creating Session using : alias=api_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-09-23T13:17:14.048937" elapsed="0.001016"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2024-09-23T13:17:14.049953" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-23T13:17:16.099625" level="INFO">GET Request : url=http://localhost:5000/plus/1/2 
+ path_url=/plus/1/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-09-23T13:17:16.099625" level="INFO">GET Response : url=http://localhost:5000/plus/1/2 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.0.3 Python/3.12.5', 'Date': 'Mon, 23 Sep 2024 06:17:16 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '1', 'Connection': 'close'} 
+ body=3 
+ </msg>
+<msg time="2024-09-23T13:17:16.099625" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api_session</arg>
+<arg>/plus/1/2</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2024-09-23T13:17:14.049953" elapsed="2.049672"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-09-23T13:17:16.100624" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-23T13:17:16.100624" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-09-23T13:17:16.101620" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.content}</arg>
+<arg>3</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-09-23T13:17:16.101620" elapsed="0.000000"/>
+</kw>
+<doc>ทดสอบการเรียก /plus/1/2 API</doc>
+<status status="PASS" start="2024-09-23T13:17:14.048937" elapsed="2.053685"/>
+</test>
+<status status="PASS" start="2024-09-23T13:17:11.260766" elapsed="4.842853"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-09-23T13:17:11.994082" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2024-09-23T13:17:14.049953" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
